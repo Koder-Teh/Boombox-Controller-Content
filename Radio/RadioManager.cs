@@ -218,20 +218,22 @@ namespace BoomboxController_Content.Radio
         {
             UnityEngine.Random.State state = Random.state;
             Random.InitState(GameAPI.seed);
-            AudioLoop[] components = __instance.GetComponents<AudioLoop>();
-            __instance.music = components[Random.Range(0, components.Length)];
+            AudioLoop components = __instance.GetComponent<AudioLoop>();
+            __instance.music = components;
             currectTrack = 0;
-            switch (AudioManager.listmusic)
+            if(musicList_local.Count != 0 || musicList_net.Count != 0)
             {
-                case AudioManager.SwitchCatalog.Local:
-                    __instance.music.clip = musicList_local[currectTrack];
-                    break;
-                case AudioManager.SwitchCatalog.Network:
-                    currectTrack = 0;
-                    __instance.music.clip = musicList_net[currectTrack];
-                    break;
+                switch (AudioManager.listmusic)
+                {
+                    case AudioManager.SwitchCatalog.Local:
+                        __instance.music.clip = musicList_local[currectTrack];
+                        break;
+                    case AudioManager.SwitchCatalog.Network:
+                        currectTrack = 0;
+                        __instance.music.clip = musicList_net[currectTrack];
+                        break;
+                }
             }
-            radio = __instance;
             Random.state = state;
             if (plugin.GetConfig().requstbattery.Value)
             {

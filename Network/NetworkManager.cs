@@ -40,11 +40,17 @@ namespace BoomboxController_Content.Network
             switch (AudioManager.listmusic)
             {
                 case AudioManager.SwitchCatalog.Local:
-                    Variables.radio.music.clip = musicList_local[currectTrack];
+                    if (musicList_local.Count != 0)
+                    {
+                        Variables.radio.music.clip = musicList_local[currectTrack];
+                    }
                     break;
                 case AudioManager.SwitchCatalog.Network:
                     currectTrack = 0;
-                    Variables.radio.music.clip = musicList_net[currectTrack];
+                    if (musicList_net.Count != 0)
+                    {
+                        Variables.radio.music.clip = musicList_net[currectTrack];
+                    }
                     break;
             }
             GameObject radio = GameObject.Find("Radio(Clone)");
@@ -79,12 +85,18 @@ namespace BoomboxController_Content.Network
             {
                 case AudioManager.SwitchCatalog.Local:
                     AudioManager.listmusic = AudioManager.SwitchCatalog.Local;
-                    radio.music.clip = musicList_local[currectTrack];
+                    if (musicList_local.Count != 0)
+                    {
+                        radio.music.clip = musicList_local[currectTrack];
+                    }
                     break;
                 case AudioManager.SwitchCatalog.Network:
                     AudioManager.listmusic = AudioManager.SwitchCatalog.Network;
                     currectTrack = 0;
-                    radio.music.clip = musicList_net[currectTrack];
+                    if (musicList_net.Count != 0)
+                    {
+                        radio.music.clip = musicList_net[currectTrack];
+                    }
                     break;
             }
         }

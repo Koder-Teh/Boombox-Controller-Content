@@ -163,6 +163,11 @@ namespace BoomboxController_Content.Menu
                     }
                     else
                     {
+                        if (musicList_local.ToArray().Length == 0)
+                        {
+                            HelmetText.Instance.SetHelmetText("Нету песен в каталоге Local!", 1f);
+                            break;
+                        }
                         OnOffButton = true;
                         Boombox_Start = true;
                         buttonMain.text = "Stop";
@@ -215,8 +220,8 @@ namespace BoomboxController_Content.Menu
             buttonMain.text = "Play";
             networkManager.CallRPC("RPC_SyncTrackPosition", RpcTarget.All, 0f);
             networkManager.CallRPC("RPC_SyncPosition", RpcTarget.All, currectTrack);
-            networkManager.CallRPC("RPC_OnOffMusic", RpcTarget.All, OnOffButton, Boombox_Start);
             networkManager.CallRPC("RPC_SyncCatalog", RpcTarget.All, val);
+            networkManager.CallRPC("RPC_OnOffMusic", RpcTarget.All, OnOffButton, Boombox_Start);
         }
 
         public static void OpenMenu()

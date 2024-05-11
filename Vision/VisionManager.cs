@@ -126,6 +126,14 @@ namespace BoomboxController_Content.Vision
                     Destroy(radio.transform.parent.gameObject);
                 }
             }
+
+            if (RadioManager.GetFindIndex().Length > 0)
+            {
+                if (RadioManager.GetFindIndex()[0] != null)
+                {
+                    radio = RadioManager.GetFindIndex()[0].GetComponent<ArtifactRadio>();
+                }
+            }
         }
     }
 }
