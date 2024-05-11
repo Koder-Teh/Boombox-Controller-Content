@@ -8,7 +8,7 @@ If you liked the mod, please don't forget to give it a thumbs up
 
 Local songs should be thrown into the folder "Content Warning\BoomboxController\other\local".
 Necessarily! The file must contain the mp3 format.
-![](https://imgur.com/a/8tnQr9G)
+![](https://i.imgur.com/xErg1KJ.png)
 
 ### Functional:
 
