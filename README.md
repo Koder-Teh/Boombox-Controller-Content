@@ -4,6 +4,8 @@ This mod allows you to easily upload a track to the boombox by using menu
 
 If you liked the mod, please don't forget to give it a thumbs up
 
+Game: Content Warning
+
 ### Upload local songs
 
 Local songs should be thrown into the folder "Content Warning\BoomboxController\other\local".
